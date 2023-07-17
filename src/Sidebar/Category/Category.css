@@ -1,0 +1,67 @@
+.sidebar-title {
+    font-size: 22px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.sidebar-items {
+    margin-top: 20px;
+}
+
+.sidebar-lable-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.sidebar-lable-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+.sidebar-lable-container:hover input ~.checkmark {
+    background-color: #CCC;
+}
+
+.sidebar-lable-container input:checked ~.checkmark {
+    background-color: #2196f3;
+}
+
+.checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.sidebar-lable-container input:checked ~.checkmark::after {
+    display: block;
+}
+
+.sidebar-lable-container .checkmark::after {
+    top: 5px;
+    left: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.line {
+    margin-top: 3rem;
+    border-color: #f7f7f7;
+}
