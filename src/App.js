@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import Navigation from './Navigation/Nav';
-import Products from './Products/Products';
-import Recomended from './Recomended/Recomended';
-import Sidedar from './Sidebar/Sidebar';
+import { useState } from "react";
 
-// Database
-import products from './db/data'
-import Card from './components/Card';
+import Navigation from "./Navigation/Nav";
+import Products from "./Products/Products";
+import products from "./db/data";
+import Recommended from "./Recommended/Recommended";
+import Sidebar from "./Sidebar/Sidebar";
+import Card from "./components/Card";
+import "./index.css";
 
 function App() {
 
@@ -15,9 +15,9 @@ function App() {
     
     // ------------------- Input Filter -------------------
     
-    const handleInpurChange = (e) => setQuery(e.target.value)
+    const handleInputChange = (e) => setQuery(e.target.value)
     const filteredItems = products.filter(product => 
-        product.title.toLocaleLowerCase().indexOf(query.toLocaleLowerCase() !== -1)
+        product.title.toLocaleLowerCase().indexOf(query.toLocaleLowerCase()) !== -1
     )
     
     // ------------------- Radio Filter -------------------
@@ -65,10 +65,10 @@ function App() {
 
     return (
         <>
-            <Sidedar />
-            <Navigation/>
-            <Recomended/>
-            <Products/>
+            <Sidebar handleChange={handleChange} />
+            <Navigation query={query} handleInputChange={handleInputChange} />
+            <Recommended handleClick={handleClick} />
+            <Products result={result} />
         </>
     );
 }
